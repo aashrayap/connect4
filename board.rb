@@ -48,6 +48,12 @@ class Board
 		end
 	end
 
+	def winning_combination(symbol)
+		winning_diagonal? || winning_vertical? || winning horizontal?
+	end
+	
+
+
 
 
 end
