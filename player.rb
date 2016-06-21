@@ -9,8 +9,8 @@ class Player
     def get_coordinates
         while true
             column=ask_for_coordinates
-            if check_for_format(column)
-                if board.add_piece(column,@symbol)
+            if check_for_format(column.to_i)
+                if @board.add_piece(column,@symbol)
                     break
                 end
             end
@@ -22,12 +22,13 @@ class Player
 
     def ask_for_coordinates
         puts "Please enter a valid column number: "
-        gets.chomp #make equal to variable if error in this line
+        column_number=gets.chomp
     end
 
     def check_for_format(column)
-        if column == (1..6)
+        if column>=1 && column<=6
             puts "Good format"
+            return true
         else
             puts "Wrong Format"
         end
