@@ -10,7 +10,8 @@ class Player
         while true
             column=ask_for_coordinates
             if check_for_format(column.to_i)
-                if @board.add_piece(column,@symbol)
+            	puts "yooyooyo"
+                if @board.add_piece(column)
                     break
                 end
             end
@@ -31,6 +32,7 @@ class Player
             return true
         else
             puts "Wrong Format"
+            return false
         end
     end
 end
