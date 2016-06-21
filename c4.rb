@@ -112,8 +112,10 @@ class Connect4
     def switch_players
         if @currentplayer==@player1
             @currentplayer=@player2
-        else
-            @currentplayer==@player1
+
+        elsif @currentplayer==@player2
+            @currentplayer=@player1
+
         end
     end
 end

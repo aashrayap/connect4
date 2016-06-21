@@ -30,11 +30,11 @@ class Board
     #         [@board[0][5],@board[1][5],@board[2][5],@board[3][5],@board[4][5],@board[5][5]]]
     # end
 
-    def add_piece(column)
+    def add_piece(column,symbol)
         @column=column
         if column_avaliable?
         	puts "poop"
-            @board[@column.to_i].unshift('X')
+            @board[@column.to_i].unshift(symbol.to_s)
             @board[@column.to_i].pop
             @rowcoordinate=@board[@column.to_i].size-1
             puts "hellomybaby"

@@ -11,7 +11,7 @@ class Player
             column=ask_for_coordinates
             if check_for_format(column.to_i)
             	puts "yooyooyo"
-                if @board.add_piece(column)
+                if @board.add_piece(column,@symbol)
                     break
                 end
             end
