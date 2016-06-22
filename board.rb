@@ -12,12 +12,14 @@ class Board
       #     monkey_around
       #     counter += 1 
       # end
+      @board.transpose
       @board.each do |row|
           row.each do |cell|
               cell.nil? ? print("-") : print(cell.to_s)
           end
       puts
       end
+      @board.transpose
       puts
       # monkey_around
   end
@@ -88,14 +90,13 @@ class Board
      d11 = [@board[5][2], @board[4][3], @board[3][4], @board[2][5], @board[1][6]]
      d12 = [@board[5][3], @board[4][4], @board[3][5], @board[2][6]]
      arraydigagonals = [d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12]
-     arraydigagonals.each do |currentdig|
-       break if four_in_a_row?(currentdig)
-     end
- end
-
-
-
+    	 arraydigagonals.each do |currentdig|
+       		return true if four_in_a_row?(currentdig)
+   		end
+   		return false
+   	end
 end
+
 
 
 
