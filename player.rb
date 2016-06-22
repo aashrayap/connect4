@@ -1,4 +1,4 @@
-class Player 
+class Player
    def initialize(name,symbol,board)
        @name=name
        @symbol=symbol
@@ -9,27 +9,28 @@ class Player
        while true
            column=ask_for_coordinates
            if check_for_format(column.to_i)
-                puts "check"
                if @board.add_piece(column,@symbol)
-                puts "add "
                    break
                end
            end
        end
    end
+
+   def get_name
+     @name
+   end
    def everything_valid
    end
    def ask_for_coordinates
-       puts "Please enter a valid column number: "
+       puts "#{name}, where would you like to place a game piece? "
        column_number=gets.chomp
    end
    def check_for_format(column)
        if column>=0 && column<=5
-           puts "Good format"
            return true
        else
            puts "Wrong Format"
-           return false 
+           return false
        end
    end
 end
