@@ -15,10 +15,6 @@ class Player
            end
        end
    end
-
-   def get_name
-     @name
-   end
    def everything_valid
    end
    def ask_for_coordinates
@@ -26,7 +22,7 @@ class Player
        column_number=gets.chomp
    end
    def check_for_format(column)
-       if column>=0 && column<=5
+       if column>=0 && column<=6
            return true
        else
            puts "Wrong Format"
