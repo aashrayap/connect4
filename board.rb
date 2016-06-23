@@ -53,13 +53,13 @@ class Board
           end
           return true
        else
-            puts "column full"
+            puts "That column is full, please choose another column !"
            return false
        end
    end
 
    def column_avaliable?
-       if @board[@column.to_i].size <=6
+       if @board[@column.to_i][0]=='z'
            return true
        else
            return false
