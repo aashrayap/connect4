@@ -53,7 +53,8 @@ class Board
           end
           return true
        else
-           false
+            puts "column full"
+           return false
        end
    end
 
@@ -68,6 +69,16 @@ class Board
        winning_vertical? || winning_horizontal? || winning_diagonal?
        #winning_diagonal? || winning_vertical? || winning horizontal?
    end
+
+   def full?
+      if (@board[0][0] != 'z' && @board[1][0] != 'z' && @board[2][0] != 'z' && @board[3][0] != 'z' && @board[4][0] != 'z' && @board[5][0] != 'z' && @board[6][0] != 'z')
+         puts "tie game"
+        return true
+      else 
+        return false
+      end
+    end
+
    def winning_vertical?
        # coordinate=[@column,@rowcoordinate]
        # verticalarray=[@board[@column.to_i][@rowcoordinate.to_i],@board[@column.to_i][@rowcoordinate.to_i-1],@board[@column.to_i][@rowcoordinate.to_i-2],@board[@column.to_i][@rowcoordinate.to_i-3]]
@@ -105,10 +116,7 @@ class Board
        if four_in_a_row?(current_diagonal)
          return true
        end
-
      }
      return false
-
-end
-
-end
+    end
+  end

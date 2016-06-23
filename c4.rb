@@ -87,25 +87,21 @@ class Connect4
           puts "GAME OVER!!! #{@currentplayer.name} is the winner!!"
               break
           end
+          
+          if check_tie?
+            puts "TIE GAME!!!"
+          end
       end
   end
 
   def game_over?
       # if check_tie || check_win
-      if check_win?
+      if check_win? 
           return true
       else
           return false
       end
   end
-
-  # def check_tie?
-  #     if @board.full
-  #         true
-  #     else
-  #         false
-  #     end
-  # end
 
   def check_win?
       if @board.winning_combination?
@@ -113,6 +109,14 @@ class Connect4
       else
           false
       end
+  end
+
+  def check_tie?
+    if @board.full?
+      true
+    else 
+      false
+    end
   end
 
   def switch_players
