@@ -72,7 +72,6 @@ class Board
 
    def full?
       if (@board[0][0] != 'z' && @board[1][0] != 'z' && @board[2][0] != 'z' && @board[3][0] != 'z' && @board[4][0] != 'z' && @board[5][0] != 'z' && @board[6][0] != 'z')
-         puts "tie game"
         return true
       else 
         return false

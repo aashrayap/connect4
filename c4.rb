@@ -87,9 +87,9 @@ class Connect4
           puts "GAME OVER!!! #{@currentplayer.name} is the winner!!"
               break
           end
-          
           if check_tie?
             puts "TIE GAME!!!"
+            break
           end
       end
   end
