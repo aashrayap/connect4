@@ -67,10 +67,11 @@ require './player.rb'
 
 class Connect4
   def initialize
+      puts "Welcome to Connect 4! A fun two player game !"
       @board= Board.new
-      puts "Enter the name of Player 1"
+      puts "Enter the name of Player 1 :"
       @player1= Player.new(gets.chomp,"X",@board)
-      puts "Enter the name of Player 2"
+      puts "Enter the name of Player 2 :"
       @player2= Player.new(gets.chomp,"O",@board)
       @currentplayer=@player1
   end
