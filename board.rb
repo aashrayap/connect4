@@ -97,6 +97,9 @@ class Board
 
    def winning_diagonal?
       #coordinate of piece added is @board[@olummn.to_i][@rowcoordinate]
+      if column.to_i.between?(3,6) && @rowcoordinate.to_i.between?(1,4)
+        lower_left
+      end
 
 
 
@@ -122,6 +125,10 @@ class Board
      # return false
 
     end
+
+    def lower_left
+      lower_left_array=[@board[@olummn.to_i][@rowcoordinate],@board[@olummn.to_i][@rowcoordinate]
+
 
   end
 
