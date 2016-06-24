@@ -96,7 +96,7 @@ class Board
    end
 
   def winning_diagonal?
-    upleft(@column.to_i,@rowcoordinate.to_i) || upright(@column.to_i,@rowcoordinate.to_i)
+    upleft?(@column.to_i,@rowcoordinate.to_i) || upright?(@column.to_i,@rowcoordinate.to_i)
   end
 
 
@@ -110,7 +110,7 @@ class Board
     end
   end
 
- def upleft (tempcolumn, tempcoordinate) 
+ def upleft? (tempcolumn, tempcoordinate) 
      n=0 
      i=0
       checkarray = []
@@ -125,7 +125,6 @@ class Board
        tempcolumn += 1
        tempcoordinate+=1
        i+=1
-       puts i
      end
      #upleft
      tempcolumn=checkpointcolumn-1
@@ -147,7 +146,7 @@ class Board
       end
     end
 
-    def upright (tempcolumn, tempcoordinate) 
+    def upright? (tempcolumn, tempcoordinate) 
      n=0 
      i=0
       checkarray = []
