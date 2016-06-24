@@ -96,7 +96,7 @@ class Board
    end
 
   def winning_diagonal?
-    upleft(@column.to_i,@rowcoordinate.to_i)
+    upleft(@column.to_i,@rowcoordinate.to_i) || upright(@column.to_i,@rowcoordinate.to_i)
   end
 
 
@@ -118,7 +118,7 @@ class Board
       checkpointcoordinate=tempcoordinate
       #downright
      until i ==4
-      if tempcolumn == @board.size || tempcoordinate == @board[tempcolumn].size
+      if tempcolumn == -1 ||tempcolumn == 7 || tempcoordinate == -1 || tempcoordinate == 6
         break
       end
        checkarray << @board[tempcolumn][tempcoordinate]
@@ -131,7 +131,7 @@ class Board
      tempcolumn=checkpointcolumn-1
      tempcoordinate=checkpointcoordinate-1
      until n ==3
-      if tempcolumn == 0 || tempcoordinate == 0
+      if tempcolumn == -1 || tempcoordinate == -1 || tempcolumn == 7 || tempcoordinate == 6
         break
       end
        checkarray.unshift(@board[tempcolumn][tempcoordinate])
@@ -155,8 +155,8 @@ class Board
       checkpointcoordinate=tempcoordinate
       #downright
      until i ==4
-      if tempcolumn == 0 || tempcoordinate == @board[tempcolumn].size
-        break
+         if tempcolumn == -1 || tempcoordinate == -1 || tempcolumn == 7 || tempcoordinate == 6  
+          break
       end
        checkarray << @board[tempcolumn][tempcoordinate]
        tempcolumn -= 1
@@ -167,7 +167,7 @@ class Board
      tempcolumn=checkpointcolumn-1
      tempcoordinate=checkpointcoordinate-1
      until n ==3
-      if tempcolumn == @board.size || tempcoordinate == 0
+        if tempcolumn == -1 || tempcoordinate == -1 || tempcolumn == 7 || tempcoordinate == 6
         break
       end
        checkarray.unshift(@board[tempcolumn][tempcoordinate])
