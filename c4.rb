@@ -81,7 +81,7 @@ class Connect4
           @board.render
           @currentplayer.get_coordinates
           switch_players
-          if game_over?
+          if game_over? 
           @board.render
           switch_players
           puts "GAME OVER!!! #{@currentplayer.name} is the winner!!"
