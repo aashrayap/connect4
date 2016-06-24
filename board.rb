@@ -96,7 +96,7 @@ class Board
    end
 
   def winning_diagonal?
-    upright(@column,@rowcoordinate)
+    upleft(@column.to_i,@rowcoordinate.to_i)
   end
 
 
@@ -118,13 +118,14 @@ class Board
       checkpointcoordinate=tempcoordinate
       #downright
      until i ==4
-      if tempcolumn == -1 || tempcoordinate == -1
+      if tempcolumn == @board.size || tempcoordinate == @board[tempcolumn].size
         break
       end
        checkarray << @board[tempcolumn][tempcoordinate]
        tempcolumn += 1
        tempcoordinate+=1
        i+=1
+       puts i
      end
      #upleft
      tempcolumn=checkpointcolumn-1
@@ -139,7 +140,43 @@ class Board
        n+=1
      end
 
-     if four_in_a_row(checkarray)
+     if four_in_a_row?(checkarray)
+        return true
+      else 
+        return false
+      end
+    end
+
+    def upright (tempcolumn, tempcoordinate) 
+     n=0 
+     i=0
+      checkarray = []
+      checkpointcolumn=tempcolumn
+      checkpointcoordinate=tempcoordinate
+      #downright
+     until i ==4
+      if tempcolumn == 0 || tempcoordinate == @board[tempcolumn].size
+        break
+      end
+       checkarray << @board[tempcolumn][tempcoordinate]
+       tempcolumn -= 1
+       tempcoordinate+=1
+       i+=1
+     end
+     #upleft
+     tempcolumn=checkpointcolumn-1
+     tempcoordinate=checkpointcoordinate-1
+     until n ==3
+      if tempcolumn == @board.size || tempcoordinate == 0
+        break
+      end
+       checkarray.unshift(@board[tempcolumn][tempcoordinate])
+       tempcolumn += 1
+       tempcoordinate-=1
+       n+=1
+     end
+
+     if four_in_a_row?(checkarray)
         return true
       else 
         return false
