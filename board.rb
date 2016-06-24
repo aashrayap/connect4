@@ -95,47 +95,57 @@ class Board
       four_in_a_row?(horizontalarray)
    end
 
-   def winning_diagonal?
-      #coordinate of piece added is @board[@olummn.to_i][@rowcoordinate]
-      # if column.to_i.between?(3,6) && @rowcoordinate.to_i.between?(1,4)
-      #   lower_left
-      # end
+  def winning_diagonal?
+    upright(@column,@rowcoordinate)
+  end
 
 
-
-     # d1 = [@board[3][5],@board[2][4],@board[1][3],@board[0][2]]
-     #  d2 = [@board[4][5],@board[3][4],@board[2][3],@board[1][2],@board[0][1]]
-     #  d3 = [@board[5][5],@board[4][4],@board[3][3],@board[2][2],@board[1][1],@board[0][0]]
-     #  d4 = [@board[0][0],@board[1][1],@board[2][2],@board[3][3],@board[4][4],@board[5][5]]
-     #  d5 = [@board[2][0],@board[3][1],@board[4][2],@board[5][3],@board[6][4]]
-     #  d6 = [@board[3][0],@board[4][1],@board[5][2],@board[6][3]]
-     # d7 =[@board[6][2],@board[5][3],@board[4][4],@board[3][5]]
-     # d8 =[@board[6][1],@board[5][2],@board[4][3],@board[3][4],@board[2][5]]
-     # d9 =[@board[6][0],@board[5][1],@board[4][2],@board[3][3],@board[2][4], @board[1][5]]
-     # d10 = [@board[5][0], @board[4][1], @board[3][2], @board[2][3], @board[1][4], @board[0][5]]
-     # d11 = [@board[4][0], @board[3][1], @board[2][2], @board[1][3], @board[0][4]]
-     # d12 = [@board[3][0], @board[2][1], @board[1][2], @board[0][3]]
-
-     # array_diagonals = [d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12]
-     # array_diagonals.each { |current_diagonal|
-     #   if four_in_a_row?(current_diagonal)
-     #     return true
-     #   end
-     # }
-     # return false
-    # end
-
-
+  def upright(tempcolumn,tempcoordinate)
     i=0
-    tempcolumn=@column.to_i
-    tempcoordinate=@rowcoordinate
     until tempcolumn==(0||-1) || tempcoordinate== (0||-1)
 
       checkarray=[]
       checkarray << @board[tempcolumn+i][tempcoordinate+i]
 
-
+    end
   end
+
+ def upleft (tempcolumn, tempcoordinate) 
+     n=0 
+     i=0
+      checkarray = []
+      checkpointcolumn=tempcolumn
+      checkpointcoordinate=tempcoordinate
+      #downright
+     until i ==4
+      if tempcolumn == -1 || tempcoordinate == -1
+        break
+      end
+       checkarray << @board[tempcolumn][tempcoordinate]
+       tempcolumn += 1
+       tempcoordinate+=1
+       i+=1
+     end
+     #upleft
+     tempcolumn=checkpointcolumn-1
+     tempcoordinate=checkpointcoordinate-1
+     until n ==3
+      if tempcolumn == 0 || tempcoordinate == 0
+        break
+      end
+       checkarray.unshift(@board[tempcolumn][tempcoordinate])
+       tempcolumn -= 1
+       tempcoordinate-=1
+       n+=1
+     end
+
+     if four_in_a_row(checkarray)
+        return true
+      else 
+        return false
+      end
+    end
+end
 
 
 
