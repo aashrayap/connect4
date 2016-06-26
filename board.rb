@@ -176,7 +176,13 @@ class Board
 
     def corners?(column,row)
       checkcorner=[]
-      if 
+      if column==0 && row == 0
+        checkcorner=[@board[column][coordinate],@board[column+1][coordinate+1],@board[column+2][coordinate+2],@board[column+3][coordinate+3]]
+      elsif column==0 && row == 5
+        checkcorner=[@board[column][coordinate],@board[column+1][coordinate-1],@board[column+2][coordinate-2],@board[column+3][coordinate-3]]
+      elsif column
+
+      end
 end
 
 
