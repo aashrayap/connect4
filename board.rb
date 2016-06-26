@@ -100,7 +100,7 @@ class Board
    end
 
   def winning_diagonal?
-    upleft?(@column.to_i,@rowcoordinate.to_i) || upright?(@column.to_i,@rowcoordinate.to_i)
+    upleft?(@column.to_i,@rowcoordinate.to_i) || upright?(@column.to_i,@rowcoordinate.to_i) || corners?(@column.to_i,@rowcoordinate.to_i)
   end
 
  def upleft? (tempcolumn, tempcoordinate) 
@@ -173,6 +173,10 @@ class Board
         return false
       end
     end
+
+    def corners?(column,row)
+      checkcorner=[]
+      if 
 end
 
 
