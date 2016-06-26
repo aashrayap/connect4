@@ -8,25 +8,26 @@ class Player
    def get_coordinates
        while true
            column=ask_for_coordinates
-           if check_for_format(column.to_i)
-               if @board.add_piece(column,@symbol)
+           if check_for_format(column)
+               if @board.add_piece(column.to_i,@symbol)
                    break
                end
            end
        end
    end
-   def everything_valid
-   end
+
    def ask_for_coordinates
        puts "#{name}, where would you like to place a game piece? "
        column_number=gets.chomp
    end
+
    def check_for_format(column)
-       if column>=0 && column<=6
-           return true
-       else
-           puts "Wrong Format"
-           return false
-       end
+   i = 0
+   @board.size.times do
+     return true if column == i.to_s
+     i+=1
    end
+   puts "Wrong Format"
+   return false
+ end
 end

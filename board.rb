@@ -13,7 +13,11 @@ class Board
        @counter = 0
        @column=0
        @rowcoordinate=0
+       @size=@board.size
    end
+
+   attr_reader :size
+
 
    def render
        puts "--------- CONNECT 4 ---------"
@@ -97,17 +101,6 @@ class Board
 
   def winning_diagonal?
     upleft?(@column.to_i,@rowcoordinate.to_i) || upright?(@column.to_i,@rowcoordinate.to_i)
-  end
-
-
-  def upright(tempcolumn,tempcoordinate)
-    i=0
-    until tempcolumn==(0||-1) || tempcoordinate== (0||-1)
-
-      checkarray=[]
-      checkarray << @board[tempcolumn+i][tempcoordinate+i]
-
-    end
   end
 
  def upleft? (tempcolumn, tempcoordinate) 
